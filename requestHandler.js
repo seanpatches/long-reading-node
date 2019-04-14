@@ -32,8 +32,6 @@ function upload(response, request) {
   form.parse(request, function(error, fields, files) {
     console.log('parsing done');
  
-    /* Possible error on Windows systems:
-        tried to rename to an already existing file */
     fs.rename(files.upload.path, '/tmp/test.png', function(error) {
       if(error) {
         fs.unlink('/tmp/test.png');
